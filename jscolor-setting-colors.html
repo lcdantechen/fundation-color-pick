@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pick Your Fundation Color</title>
+</head>
+<body>
+<p>Pick Your Fundation Color</p>
+
+<div id="baseColor"></div>
+
+
+
+<div id="shadeColor">
+
+
+
+<div id="shade01" class="shadeColorSytyle" style="background:#e9d8be" onmouseover="document.getElementById('foo')
+    .jscolor.fromString('e9d8be')">shadeColor</div>
+
+<div id="shade02" class="shadeColorSytyle" style="background:#e2b28b" onmouseover="document.getElementById('foo')
+    .jscolor.fromString('e2b28b')">shadeColor02</div>
+
+<div id="shade03" class="shadeColorSytyle" style="background:#b78a60" onmouseover="document.getElementById('foo')
+    .jscolor.fromString('b78a60')">shadeColor03</div>
+
+<div id="shade04" class="shadeColorSytyle" style="background:#9f7354" onmouseover="document.getElementById('foo')
+    .jscolor.fromString('9f7354')">shadeColor04</div>
+
+<div id="shade05" class="shadeColorSytyle" style="background:#7f5437" onmouseover="document.getElementById('foo')
+    .jscolor.fromString('7f5437')">shadeColor05</div>
+
+<div id="shade06" class="shadeColorSytyle" style="background:#5b351e" onmouseover="document.getElementById('foo')
+    .jscolor.fromString('5b351e')">shadeColor06</div>
+
+<div id="shade07" class="shadeColorSytyle" style="background:#402210" onmouseover="document.getElementById('foo')
+    .jscolor.fromString('402210')">shadeColor07</div>
+</div>
+
+
+
+
+
+
+
+
+<p><input class="jscolor" id="foo"></p>
+
+<button class="goback">Go Back</button>
+
+<style type="text/css">
+.shadeColorSytyle{
+
+	width:300px;
+	height:25px;
+	text-align:center;
+	font-size:20px;
+	padding:10px;
+	margin-left:40px;
+}	
+.gradientImg{
+	width:4.3%;
+	height:auto;
+	float:left;
+}
+.gradientDiv{
+	margin-right:30px;
+	position:relative;
+}
+
+
+
+</style>
+
+
+<script   src="https://code.jquery.com/jquery-3.0.0.js"   integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo="   crossorigin="anonymous"></script>
+<script src="jscolor.js"></script>
+
+<script type="text/javascript">
+
+
+
+/*funciton saparate template*/
+
+var shade01Sub = ["e8e1b3", "f3e1b1", "ece6c0", "e9d8be", "efded4", "f0dcc5", "ebdbd8" ];
+var shade02Sub = ["e0b784", "e2b885", "e2b98c", "e2b28b", "e7bda1", "e8bd9c", "e5bca3" ];
+var shade03Sub = ["b29159", "b9935b", "bc976a", "b78a60", "c39879", "c49a77", "bf987d" ];
+var shade04Sub = ["9b7e50", "a27d50", "a37e5b", "9f7354", "ac816a", "b2886e", "aa8474" ];
+var shade05Sub = ["7a5e32", "825e34", "84603f", "9f7354", "a77a62", "b1866c", "a47c6b" ];
+var shade06Sub = ["594321", "644625", "634229", "7f5437", "8e644e", "764f3c", "6e4e42" ];
+var shade07Sub = ["3f2f15", "3f2f15", "4a311d", "402210", "57392c", "4e2d1d", "52382f" ];
+
+function colorPanel() {
+	 var gradientDiv = $('<div>');
+	 gradientDiv.addClass('gradientDiv');
+	 var gradient = $('<img>');
+   gradient.attr('src', 'colorgradient.jpg');
+   gradient.addClass('gradientImg');
+   gradientDiv.append(gradient);
+	 $('#baseColor').append(gradientDiv);
+
+}
+
+function shadeChoice(shadeSub) {
+
+	 for (i = 0; i < shadeSub.length; i++){
+	   var shadeColor = $("<div>");
+	   shadeColor.css("background", "#" + shadeSub[i]);
+	   shadeColor.addClass('shadeColorSytyle');
+	   shadeColor.attr('color-name', 'base0' + i);
+	   shadeColor.attr('onmouseover', "document.getElementById('foo').jscolor.fromString('" + shadeSub[i]+"')" );
+	   shadeColor.text('base0' + i );
+	   
+	   $('#baseColor').append(shadeColor);
+	   
+
+    }
+  
+}
+
+$('#shade01').on('click', function() {
+	$('#shadeColor').empty();
+	 colorPanel();
+   shadeChoice(shade01Sub);
+   
+
+})
+
+$('#shade02').on('click', function() {
+	 $('#shadeColor').empty();
+
+   colorPanel();
+   shadeChoice(shade02Sub);
+
+})
+
+$('#shade03').on('click', function() {
+	 $('#shadeColor').empty();
+
+   colorPanel();
+   shadeChoice(shade03Sub);
+
+})
+
+$('#shade04').on('click', function() {
+	 $('#shadeColor').empty();
+
+   colorPanel();
+   shadeChoice(shade04Sub);
+})
+
+
+$('#shade05').on('click', function() {
+	 $('#shadeColor').empty();
+
+   colorPanel();
+   shadeChoice(shade05Sub);
+
+})
+
+$('#shade06').on('click', function() {
+	 $('#shadeColor').empty();
+
+   colorPanel();
+   shadeChoice(shade06Sub);
+
+})
+
+$('#shade07').on('click', function() {
+	 $('#shadeColor').empty();
+   colorPanel();
+   shadeChoice(shade07Sub);
+
+})
+
+$('.goback').click(function() {
+    location.reload();
+});
+
+
+
+
+
+/*function baseColor(){
+   
+   for (i = 0; i < firstPicks.length; i++){
+
+
+	   var baseColor01 = $("<div>");
+	   baseColor01.css("background", "#" + firstPicks[i]);
+	   baseColor01.addClass('shadeColorSytyle');
+	   baseColor01.attr('color-name', 'base0' + i);
+	   baseColor01.attr('onmouseover', "document.getElementById('foo').jscolor.fromString('" + firstPicks[i]+"')" );
+	   baseColor01.text('base0' + i );
+	   $('#baseColor').append(baseColor01)
+    }
+
+}*/
+	
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
