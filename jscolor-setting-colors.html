@@ -47,6 +47,11 @@
 
 <button class="goback">Go Back</button>
 
+<p>Click to Select Your Lipstick Color:	
+<input class="jscolor {onFineChange:'update(this)'}" value="cc66ff"></p>
+
+<p id="rect" style="border:1px solid gray; border-radius:100px; width:161px; height:100px;">
+
 <style type="text/css">
 .shadeColorSytyle{
 
@@ -77,7 +82,10 @@
 
 <script type="text/javascript">
 
-
+function update(jscolor) {
+    // 'jscolor' instance can be used as a string
+    document.getElementById('rect').style.backgroundColor = '#' + jscolor
+}
 
 /*funciton saparate template*/
 
