@@ -5,14 +5,6 @@
 </head>
 <body>
 <p>Pick Your Fundation Color</p>
-<p>Note: Colors can be adjusted between levels, if desired.</br>
-	i.e.: 
-	Fair Yellow/Olive = 10FYO</br>
-	       Neutral/Pink = NP</br>
-	       10FY/20BY = 15BY</br>
-	       50TN/60DN = 55DN
-
-</p>
 
 <div id="baseColor"></div>
 
@@ -42,7 +34,6 @@
 
 <div id="shade07" class="shadeColorSytyle" style="background:#402210" onmouseover="document.getElementById('foo')
     .jscolor.fromString('402210')">DEEP 70DN</div>
-
 </div>
 
 
@@ -69,24 +60,19 @@
 	text-align:center;
 	font-size:20px;
 	padding:10px;
-	margin-left:50px;
+	margin-left:40px;
 	margin-bottom: 5px;
-	color:#fff;
 }	
 .gradientImg{
-	width:36px;
+	width:24px;
 	height:auto;
 	float:left;
 }
 .gradientDiv{
-	margin-right:45px;
+	margin-right:30px;
 	position:relative;
 }
 
-.colorGroupSytyle{
-  
-	padding-left:30px;
-}
 
 
 </style>
@@ -104,42 +90,13 @@ function update(jscolor) {
 
 /*funciton saparate template*/
 
-var shade01Sub = {
-	colorArray : ["e8e1b3", "f3e1b0", "ebddb3", "e9d8be", "e9d3c5", "ecd3b6", "e3ceca" ],
-	colorName : ["10FO", "10FY", "10FC", "FAIR 10FN", "10FP", "10FR", "10FB"],
-	colorGroup : ["OLIVE", "YELLOW", "CORAL", "NEUTRAL", "PINK", "RED", "BLUE"]
-};
-var shade02Sub = {
-	colorArray : ["e0b784", "e2b784", "e2b88b", "e2b28b", "e2ae8c", "e3b088", "e0ae90" ],
-	colorName: ["20BO", "20BY", "20BC", "BEIGE 20BN", "20BP", "20BR", "20BB"],
-	colorGroup : ["OLIVE", "YELLOW", "CORAL", "NEUTRAL", "PINK", "RED", "BLUE"]
-};
-var shade03Sub = {
-	colorArray : ["b29158", "b89158", "b79060", "b78a60", "b88661", "b9875d", "b38566" ],
-	colorName: ["30BO", "30BY", "30BC", "BEIGE 30BN", "30BP", "30BR", "30BB"],
-	colorGroup : ["OLIVE", "YELLOW", "CORAL", "NEUTRAL", "PINK", "RED", "BLUE"]
-};
-var shade04Sub = {
-	colorArray : ["997b4c", "a07a4c", "9f7854", "9f7354", "a06f55", "a27051", "9a6d5a" ],
-	colorName: ["40TO", "40TY", "40TC", "TAN 40TN", "40TP", "40TR", "40TB"],
-	colorGroup : ["OLIVE", "YELLOW", "CORAL", "NEUTRAL", "PINK", "RED", "BLUE"]
-};
-var shade05Sub = {
-	colorArray : ["785c30", "805b30", "7f5937", "7f5437", "805138", "825134", "7a4e3d" ],
-	colorName: ["50TO", "50TY", "50TC", "TAN 50TN", "50TP", "50TR", "50TB"],
-	colorGroup : ["OLIVE", "YELLOW", "CORAL", "NEUTRAL", "PINK", "RED", "BLUE"]
-};
-var shade06Sub = {
-	colorArray : ["533c19", "5c3c19", "5b391e", "5b351e", "5c321f", "5f321c", "553022" ],
-	colorName: ["60DO", "60DY", "60DC", "DEEP 60DN", "60DP", "60DR", "60DB"],
-	colorGroup : ["OLIVE", "YELLOW", "CORAL", "NEUTRAL", "PINK", "RED", "BLUE"]
-};
-var shade07Sub = {
-	colorArray : ["39280d", "41280d", "402510", "402210", "411f10", "43200f", "3b1e13" ],
-	colorName: ["70DO", "70DY", "70DC", "DEEP 70DN", "70DP", "70DR", "70DB"],
-	colorGroup : ["OLIVE", "YELLOW", "CORAL", "NEUTRAL", "PINK", "RED", "BLUE"]
-};
-
+var shade01Sub = ["e8e1b3", "f3e1b0", "ebddb3", "e9d8be", "e9d3c5", "ecd3b6", "e3ceca" ];
+var shade02Sub = ["e0b784", "e2b784", "e2b88b", "e2b28b", "e2ae8c", "e3b088", "e0ae90" ];
+var shade03Sub = ["b29158", "b89158", "b79060", "b78a60", "b88661", "b9875d", "b38566" ];
+var shade04Sub = ["997b4c", "a07a4c", "9f7854", "9f7354", "a06f55", "a27051", "9a6d5a" ];
+var shade05Sub = ["785c30", "805b30", "7f5937", "7f5437", "805138", "825134", "7a4e3d" ];
+var shade06Sub = ["533c19", "5c3c19", "5b391e", "5b351e", "5c321f", "5f321c", "553022" ];
+var shade07Sub = ["39280d", "41280d", "402510", "402210", "411f10", "43200f", "3b1e13" ];
 
 function colorPanel() {
 	 var gradientDiv = $('<div>');
@@ -154,21 +111,14 @@ function colorPanel() {
 
 function shadeChoice(shadeSub) {
 
-
-
-	 for (i = 0; i < shadeSub.colorArray.length; i++){
+	 for (i = 0; i < shadeSub.length; i++){
 	   var shadeColor = $("<div>");
-	   shadeColor.css("background", "#" + shadeSub.colorArray[i]);
+	   shadeColor.css("background", "#" + shadeSub[i]);
 	   shadeColor.addClass('shadeColorSytyle');
-	   shadeColor.attr('data-name', shadeSub.colorName[i]);
-	   shadeColor.attr('onmouseover', "document.getElementById('foo').jscolor.fromString('" + shadeSub.colorArray[i]+"')" );
-	   shadeColor.text(shadeSub.colorName[i]);
-
-	   var shadeName = $('<span>');
-	   shadeName.text(shadeSub.colorGroup[i]);
-	   shadeName.addClass('colorGroupSytyle');
+	   shadeColor.attr('color-name', 'base0' + i);
+	   shadeColor.attr('onmouseover', "document.getElementById('foo').jscolor.fromString('" + shadeSub[i]+"')" );
+	   shadeColor.text('base0' + i );
 	   
-	   $('#baseColor').append(shadeName);
 	   $('#baseColor').append(shadeColor);
 	   
 
